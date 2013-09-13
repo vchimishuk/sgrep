@@ -121,13 +121,21 @@ struct re *re_compile(char *regexp)
 {
         ast_node *ast = ast_build(regexp);
         state *finit;
-        state *nfa = ast_to_nfa(ast, &finit);
+        state *nfa;
 
-        ast_free(ast);
+        // Empty regexp given.
+        if (ast == NULL) {
+                nfa = new_state(RE_OP_FINAL);
+                nfa->finit = 1;
+        } else {
+                nfa = ast_to_nfa(ast, &finit);
 
-        // Append final state at the end.
-        finit->out1 = new_state(RE_OP_FINAL);
-        finit->out1->finit = 1;
+                // Append final state at the end.
+                finit->out1 = new_state(RE_OP_FINAL);
+                finit->out1->finit = 1;
+
+                ast_free(ast);
+        }
 
         re *r = malloc(sizeof(re));
         r->state = nfa;

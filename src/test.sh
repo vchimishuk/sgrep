@@ -12,6 +12,9 @@ not_assert() {
     fi
 }
 
+echo ''            | ./sgrep '' > /dev/null; assert
+echo 'a'           | ./sgrep '' > /dev/null; not_assert
+
 echo ''            | ./sgrep 'a' > /dev/null; not_assert
 echo 'a'           | ./sgrep 'a' > /dev/null; assert
 echo 'abc'         | ./sgrep 'abc' > /dev/null; assert
