@@ -1,0 +1,17 @@
+NAME
+    sgrep is a simple regular expression implementation in C. It is not
+    more but just my learning project.
+
+AUTHORS
+    Viacheslav Chimishuk <voice@root.ua>
+
+COPYING
+    This programm is released under the GNU General Public License version 3 or later, which is
+    distributed in the COPYING file. You should have received a copy of the GNU General Public License along with
+    this program.  If not, see <http://www.gnu.org/licenses/>.
+
+LINKS
+    For theoretical information see also next documents.
+    1. http://swtch.com/~rsc/regexp/
+    2. http://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html
+    3. http://perl.plover.com/Regex/article.html
