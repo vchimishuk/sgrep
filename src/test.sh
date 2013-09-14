@@ -25,6 +25,7 @@ echo 'aa'          | ./sgrep 'a*' > /dev/null; assert
 echo 'aaa'         | ./sgrep 'a*' > /dev/null; assert
 echo 'ababab'      | ./sgrep '(ab)*' > /dev/null; assert
 echo 'ababa'       | ./sgrep '(ab)*' > /dev/null; not_assert
+echo 'abbbaaba'    | ./sgrep '(a|b)*' > /dev/null; assert
 
 echo ''            | ./sgrep 'a+' > /dev/null; not_assert
 echo 'a'           | ./sgrep 'a+' > /dev/null; assert
@@ -51,3 +52,11 @@ echo 'bd'          | ./sgrep '(a|b)(c|d)' > /dev/null; assert
 echo 'aaacddd'     | ./sgrep 'a*(b|c)d+' > /dev/null; assert
 echo 'cd'          | ./sgrep 'a*(b|c)d+' > /dev/null; assert
 echo 'aaaac'       | ./sgrep 'a*(b|c)d+' > /dev/null; not_assert
+
+echo 'abc'         | ./sgrep '.*' > /dev/null; assert
+echo 'abc'         | ./sgrep '.*b.*' > /dev/null; assert
+echo 'abc'         | ./sgrep '.*c.*' > /dev/null; assert
+
+echo ''            | ./sgrep 'a?' > /dev/null; assert
+echo 'a'           | ./sgrep 'a?' > /dev/null; assert
+echo 'aa'          | ./sgrep 'aa?' > /dev/null; assert

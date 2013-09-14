@@ -10,7 +10,7 @@
 // Returns 1 if given character is repetition operation.
 static int is_repetition(char ch)
 {
-        return ch == '*' || ch == '+';
+        return ch == '*' || ch == '+' || ch == '?';
 }
 
 static ast_node *new_node(char ch)
@@ -49,6 +49,8 @@ static ast_node *create_repetition_node(ast_node *op, char rep)
                 rep = AST_OP_REP_ZERO_OR_MORE;
         } else if (rep == '+') {
                 rep = AST_OP_REP_ONE_OR_MORE;
+        } else if (rep == '?') {
+                rep = AST_OP_REP_ZERO_OR_ONE;
         }
 
         ast_node *rep_node = new_node(rep);

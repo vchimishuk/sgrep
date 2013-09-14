@@ -6,6 +6,7 @@
 #define AST_OP_ALTERNATION -2
 #define AST_OP_REP_ZERO_OR_MORE -3
 #define AST_OP_REP_ONE_OR_MORE -4
+#define AST_OP_REP_ZERO_OR_ONE -5
 
 #define ANY_CHAR 0
 

@@ -100,6 +100,22 @@ static state *ast_to_nfa(ast_node *ast, state **end)
                 e = new_state(RE_OP_PASS);
                 q->out2 = e;
                 break;
+        case AST_OP_REP_ZERO_OR_ONE:
+                //
+                //
+                //    |--(a)-->|
+                //    |        v
+                // o--|        o->
+                //    |        ^
+                //    |--------|
+                //
+                s = new_state(RE_OP_SPLIT);
+                e = new_state(RE_OP_PASS);
+                q = ast_to_nfa(ast->op1, &p);
+                s->out1 = q;
+                s->out2 = e;
+                q->out1 = e;
+                break;
         default: // Simple character node.
                 //
                 // o--(a)-->
