@@ -7,6 +7,8 @@
 #define AST_OP_REP_ZERO_OR_MORE -3
 #define AST_OP_REP_ONE_OR_MORE -4
 
+#define ANY_CHAR 0
+
 // Abstract syntax tree node.
 // Node can represents simple character, one operand operation and two operand
 // operation. If it is one operand operation node representation only op1

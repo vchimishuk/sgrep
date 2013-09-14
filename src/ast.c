@@ -80,6 +80,8 @@ ast_node *ast_build(char *regexp)
 
                 if (isalnum(ch)) {
                         node = create_char_node(ch);
+                } else if (ch == '.') {
+                        node = create_char_node(ANY_CHAR);
                 } else if (ch == '|') {
                         node = ast_build(p + 1);
                         tree = create_alternation_node(tree, node);

@@ -197,7 +197,7 @@ int re_exec(re *regexp, char *str)
                         s = (state *) states->data;
                         states = list_remove(states, states);
 
-                        if (s->ch == *str) {
+                        if (s->ch == *str || s->ch == ANY_CHAR) {
                                 new_states = list_append(new_states, s->out1);
                         }
                 }
