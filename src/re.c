@@ -5,6 +5,7 @@
  *
  * Supported language.
  * c    -- a character
+ * ?    -- zero or one occurrences
  * *    -- any (zero or more) occurrences
  * +    -- one or more occurrences
  * |    -- alternation. Should be surrounded with parentheses
